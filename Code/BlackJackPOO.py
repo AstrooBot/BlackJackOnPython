@@ -40,7 +40,7 @@ def crupier(countIA, cardPlayed):
 i = 0
 for var in range(13):
     var = Card()
-    var.Type = 'Corazón'
+    var.Type = '♥'
     var.Value = Valores[i]
     var.Symbol = Simbolos[i]
     cardList.append(var)
@@ -48,7 +48,7 @@ for var in range(13):
 i = 0    
 for var in range(13):
     var = Card()
-    var.Type = 'Picas'
+    var.Type = '♠'
     var.Value = Valores[i]
     var.Symbol = Simbolos[i]
     cardList.append(var)    
@@ -56,7 +56,7 @@ for var in range(13):
 i = 0    
 for var in range(13):
     var = Card()
-    var.Type = 'Trebol'
+    var.Type = '♣'
     var.Value = Valores[i]
     var.Symbol = Simbolos[i]
     cardList.append(var)    
@@ -64,7 +64,7 @@ for var in range(13):
 i = 0    
 for var in range(13):
     var = Card()
-    var.Type = 'Diamantes'
+    var.Type = '♦'
     var.Value = Valores[i]
     var.Symbol = Simbolos[i]
     cardList.append(var)    
