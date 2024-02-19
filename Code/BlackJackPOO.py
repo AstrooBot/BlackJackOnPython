@@ -1,4 +1,4 @@
-"""The next code is a simulation of the blacjack game which a user plays with the machine (as a Crupier)""""
+"""The next code is a simulation of the blacjack game which a user plays with the machine (as a Crupier)"""
 
 import random
 
@@ -121,4 +121,10 @@ while again == True:
  elif(game == 'n'):
     again == False
     break
-print("Gracias por jugar")  
+print("Gracias por jugar") 
+#Crear clases juego //con metodos para dar y contar cartas Clase init //para crear y revolver las cartas asi como mantener el conteo por debajo de 52 y volver a jugar
+#Crear clase de jugador y de crupier 
+#solo dejar simbolos y tipos 
+#import os
+#cardList = [Card(v,x) for v in ['A','K','Q','J']+[str(x) for x in range(2,11)]]
+#os.system('start pic.png')
