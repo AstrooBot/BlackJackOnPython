@@ -18,7 +18,6 @@ class Card:
                 count = int(self.sym)
         return count 
     def takeCard(self, cardPlayed, count):
-            print('Tarjeta salida: ',self.sym, ' ', self.type)
             count = self.value()
             cardPlayed += 1
             return count 
@@ -28,6 +27,8 @@ class Player:
         self.name = name
     def takeCard(self,card, cardPlayed, count):
         print("Empieza turno ", self.name)
+        if self.name == 'Jugador':
+            print('Tarjeta salida: ',card.sym, ' ', card.type)
         if count < 21:
             count +=card.takeCard(cardPlayed,count)
             print("Termina turno ", self.name)    
@@ -100,6 +101,6 @@ if __name__ == '__main__':
         while again == True:
             Game = game()
             again = Game.init()
-    print("Gracias por jugar")    
+    print("Gracias por jugar")   
 
 
