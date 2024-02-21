@@ -4,6 +4,7 @@
 #import os
 #cardList = [Card(v,x) for v in ['A','K','Q','J']+[str(x) for x in range(2,11)]]
 #os.system('start pic.png')
+#Crear tres modulos: Clases (Almacenar las clases y atributos), Metodos21 (almacenar los metodos necesarios para que funcione el 21) Juego (almacenar el ciclo main del juego)
 import random
 class Card:
     def __init__(self,sym,type):
