@@ -11,8 +11,7 @@ class Card:
         self.type = type
 
     def value(self):
-        #for i in ['J','Q','K','A']:
-        if 'A' == self.sym or 'K' == self.sym or 'Q' == self.sym or 'J' == self.sym:
+        if self.sym in ['J','Q','K','A']:
                 count = 10
         else:
                 count = int(self.sym)
@@ -56,7 +55,7 @@ class game:
         cardList = [Card(v,x) for v in [str(v) for v in range(2,11)]+['J','Q','K','A'] for x in ['♥','♠','♣','♦']]
         random.shuffle(cardList) 
         User = Player('Jugador')
-        Crupier = IA(Player('Crupier')) #no muestra el nombre cupier 
+        Crupier = IA('Crupier') #no muestra el nombre cupier 
         count = User.takeCard(cardList[cardPlayed],cardPlayed,count)
         cardPlayed +=1
         count = User.takeCard(cardList[cardPlayed],cardPlayed,count)
@@ -78,9 +77,9 @@ class game:
                     cardPlayed +=1 
                 print("Tus puntos total son:", count)
                 print("El total de puntos del Crupier son: ", countIA)
-                if countIA < count <= 21 or countIA > 21:
+                if countIA < count <= 21 or countIA > count:
                     print("Jugador ha ganado")  
-                elif count < countIA <= 21 or count > 21:
+                elif count < countIA <= 21 or count > countIA:
                     print("Crupier ha ganado")
                     
                 else:
@@ -100,6 +99,6 @@ if __name__ == '__main__':
         while again == True:
             Game = game()
             again = Game.init()
-    print("Gracias por jugar")     
+    print("Gracias por jugar")    
 
 
