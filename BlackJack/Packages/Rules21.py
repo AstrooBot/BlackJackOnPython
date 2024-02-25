@@ -1,30 +1,22 @@
-#Modulo especializado en las reglas del blackjack
-
-import Classes
-
-"""Este crupier ganara sin importar la trampa que sea necesaria.
-Al inicio del juego le entrega dos cartas al jugador y espera a que deje de tomar cartas.
-Una vez pasa esto, coje cartas del mazo, tomando unicamente las que les de una suma igual a 21. 
-De esta forma toma arbitrariamente cartas que le den siempre 21"""
 class IA(Classes.Player):
-    def badchoice(self, cards, cardPlayed, count):
-            self.count = 0
-            while self.count <= 21:
-                if value(cards[cardPlayed])+countIA <= 21:
-                    self.count += value(cards[cardPlayed])
-                else: 
-                    cardPlayed += 1
-            return self.count         
-"""forma inicial en la que jugaba el crupier"""
-    def goodchoice(self,count):
-      #El crupier siempre toma una carta si tiene menos o igual a 16
-         if count <= 16:
+    def badchoice(count,cards):
+        if cards+count <= 21:
+            choice = True
+        else: 
+            choice = False
+        return choice        
+
+    """forma inicial en la que jugaba el crupier"""
+
+    def goodchoice(count):
+    #El crupier siempre toma una carta si tiene menos o igual a 16
+        if count <= 16:
             des = True
-     #El crupier nunca toma una carta si tiene 17 o mas  
+    #El crupier nunca toma una carta si tiene 17 o mas  
         elif count >= 17:
             print("Crupier no tomara mas tarjetas")  
             des = False    
-     return des     
+        return des     
      
 
 def value(cards):
@@ -49,19 +41,23 @@ def takeCard(player,cards, count, cardPlayed):
 def winner(count, countIA):
     print("Tus puntos total son:", count)
     print("El total de puntos del Crupier son: ", countIA)
-    if countIA < count <= 21 or countIA > count:
+    if countIA < count <=21 or countIA > 21 and count <= 21 :
         print("Jugador ha ganado")  
-    elif count < countIA <= 21 or count > countIA:
+    elif count < countIA <= 21 or 21 > count:
         print("Crupier ha ganado")
     else:
-        print("Empate")     
-    
+        print("Empate") 
 
-""" Sample         
-cards = Classes.ShuffleCards()
-count = 0
-cardPlayed = 0
-for i in range (5):
-    count += value(cards[i])
-    cardPlayed = takeCard('Jugador', cards[i], count, cardPlayed)
-print(count, cardPlayed)  """  
+def replay():
+    print("Bienvenido a BlackJacjPy\nEl unico casino en el que lo unico que pierdes es tu tiempo")
+    round = input("¿Quieres empezar a jugar Blackjack Si (-s) No (-n)\n") 
+    if round == 's':
+        again = True
+    elif round == 'n':
+        again = False
+        print("Gracias por jugar")
+    return again
+
+"""def init(count, cards, cardPlayed,countIA):
+al intentar poner esta funcion en reemplazo del codigo de 13 a 24, resulta en un sobrepaso del indice
+de la lista"""
