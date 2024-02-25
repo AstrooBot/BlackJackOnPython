@@ -1,10 +1,18 @@
+#Modulo especializado en las reglas del blackjack
+
+import Classes
+
 class IA(Classes.Player):
-    def badchoice(count,cards):
-        if cards+count <= 21:
-            choice = True
-        else: 
-            choice = False
-        return choice        
+    
+    def badchoice(countIA,cards,cardPlayed):
+        while countIA != 21:
+                if countIA + value(cards[cardPlayed]) == 21:
+                    countIA += value(cards[cardPlayed])
+                else:
+                    print('Empieza turno del Crupier')
+                    cardPlayed += 1
+                    print('Termina turno del Crupier')
+        return countIA                  
 
     """forma inicial en la que jugaba el crupier"""
 
@@ -19,7 +27,7 @@ class IA(Classes.Player):
         return des     
      
 
-def value(cards):
+def value(cards,count):
     if cards.sym in ['J','Q','K','A']:
         count = 10
     elif cards.sym == 'A' and count < 21:
@@ -61,3 +69,5 @@ def replay():
 """def init(count, cards, cardPlayed,countIA):
 al intentar poner esta funcion en reemplazo del codigo de 13 a 24, resulta en un sobrepaso del indice
 de la lista"""
+
+
