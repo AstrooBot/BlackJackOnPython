@@ -4,14 +4,14 @@ import Classes
 
 class IA(Classes.Player):
     
-    def badchoice(countIA,count, cards,cardPlayed):
-        while count < countIA <= 21:
-                if countIA + value(cards[cardPlayed]) >= count and countIA + value(cards[cardPlayed]) <= 21 :
-                    countIA += value(cards[cardPlayed])
-                else:
-                    print('Empieza turno del Crupier')
-                    cardPlayed += 1
-                    print('Termina turno del Crupier')
+    def badchoice(self, countIA,count, cards,cardPlayed):
+        while  count >= countIA and countIA < 21 :
+            if  countIA+value(cards[cardPlayed], countIA) >= count and countIA+value(cards[cardPlayed],countIA) <= 21:
+                countIA += value(cards[cardPlayed],countIA)
+            else:
+                print('Empieza turno del Crupier')
+                cardPlayed += 1
+                print('Termina turno del Crupier')
         return countIA                  
 
     """forma inicial en la que jugaba el crupier"""
@@ -76,5 +76,7 @@ def replay():
 """def init(count, cards, cardPlayed,countIA):
 al intentar poner esta funcion en reemplazo del codigo de 13 a 24, resulta en un sobrepaso del indice
 de la lista"""
+
+
 
 
