@@ -4,9 +4,9 @@ import Classes
 
 class IA(Classes.Player):
     
-    def badchoice(countIA,cards,cardPlayed):
-        while countIA != 21:
-                if countIA + value(cards[cardPlayed]) == 21:
+    def badchoice(countIA,count, cards,cardPlayed):
+        while count < countIA <= 21:
+                if countIA + value(cards[cardPlayed]) >= count and countIA + value(cards[cardPlayed]) <= 21 :
                     countIA += value(cards[cardPlayed])
                 else:
                     print('Empieza turno del Crupier')
@@ -26,12 +26,19 @@ class IA(Classes.Player):
             des = False    
         return des     
      
+def ass(cards):     
+    if cards.sym == 'A':
+        return True
+    return False    
+
 
 def value(cards,count):
-    if cards.sym in ['J','Q','K','A']:
+    if cards.sym in ['J','Q','K']:
         count = 10
-    elif cards.sym == 'A' and count < 21:
-        count = 11    
+    elif ass(cards) == True and count+11 <= 21:
+        count = 11 
+    elif ass(cards) == True and count+11 > 21:
+        count = 1        
     else:
         count = int(cards.sym)
     return count
