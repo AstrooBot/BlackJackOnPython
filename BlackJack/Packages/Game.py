@@ -4,8 +4,7 @@ import Rules21
 
 
 while Rules21.replay() == True:
-    count = 0
-    countIA = 0
+
     cardPlayed = 0
     cards = Classes.ShuffleCards()
     User = Classes.Player('Jugador', 0)
@@ -23,7 +22,7 @@ while Rules21.replay() == True:
     Crupier.count += Rules21.value(cards[cardPlayed],Crupier.count)
     cardPlayed += 1
     print('Termina turno del Crupier')
- 
+    print(Crupier.count)
     while cardPlayed <= 52:
         v = input("¿Continuar? Si (-s) No (-n)\n")
         if v == "s":
@@ -33,8 +32,9 @@ while Rules21.replay() == True:
                 break    
         elif v == "n":
             print("Has parado de jugar")
-            while Crupier.count != 21:
-                if Crupier.count + Rules21.value(cards[cardPlayed],Crupier.count) == 21:
+            while  User.count >= Crupier.count and Crupier.count < 21 :
+                print(Crupier.count)
+                if  Crupier.count + Rules21.value(cards[cardPlayed], Crupier.count) >= User.count and Crupier.count + Rules21.value(cards[cardPlayed], Crupier.count) <= 21:
                     Crupier.count += Rules21.value(cards[cardPlayed],Crupier.count)
                 else:
                     print('Empieza turno del Crupier')
