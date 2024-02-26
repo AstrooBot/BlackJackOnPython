@@ -22,7 +22,6 @@ while Rules21.replay() == True:
     Crupier.count += Rules21.value(cards[cardPlayed],Crupier.count)
     cardPlayed += 1
     print('Termina turno del Crupier')
-    print(Crupier.count)
     while cardPlayed <= 52:
         v = input("¿Continuar? Si (-s) No (-n)\n")
         if v == "s":
