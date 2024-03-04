@@ -3,4 +3,4 @@ alt click permite trabajar en mas de una linea a la vez
 control+A  en el codigo, permite seleccionar todo el codigo a la vez
 
 Terminal: 
-pip install --RepositoryName			
+pip install --RepositoryName OR py -m pip install -U pygame --user
